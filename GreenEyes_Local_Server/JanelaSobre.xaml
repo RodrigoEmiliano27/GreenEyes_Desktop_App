@@ -1,0 +1,27 @@
+﻿<Window x:Class="GreenEyes_Local_Server.JanelaSobre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GreenEyes_Local_Server"
+        mc:Ignorable="d"
+        Title="JanelaSobre" Height="437" Width="788" Background="#FF24892E">
+    <Grid Margin="0,-7,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="301*"/>
+            <RowDefinition Height="120*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+
+        <Label Margin="20,23,481,214" FontFamily="Times New Roman" FontWeight="Bold" Content="Green Eyes Local Server" FontSize="24" Foreground="#FFEAF3E9"/>
+        <Label Margin="339,23,162,214" FontFamily="Times New Roman" FontWeight="Bold" Content="versão: 1.0" FontSize="24" Foreground="#FFEAF3E9"/>
+        <Label Margin="20,71,481,166" FontFamily="Times New Roman" FontWeight="Bold" Content="Rodrigo Emiliano" FontSize="20" Foreground="#FFEAF3E9"/>
+        <Label Margin="20,105,481,132" FontFamily="Times New Roman" FontWeight="Bold" Content="Lucas Santos Costa" FontSize="20" Foreground="#FFEAF3E9"/>
+        <Label Margin="20,139,481,98" FontFamily="Times New Roman" FontWeight="Bold" Content="Gabriel Alves Gouveia" FontSize="20" Foreground="#FFEAF3E9"/>
+        <Label Margin="20,186,481,51" FontFamily="Times New Roman" FontWeight="Bold" Content="Icones" FontSize="20" Foreground="#FFEAF3E9"/>
+        <Label Margin="72,227,102,9" FontFamily="Times New Roman" FontWeight="Bold" Content="https://www.flaticon.com/br/icones-gratis/envio" FontSize="20" Foreground="#FFEAF3E9" RenderTransformOrigin="0.627,0.583"/>
+
+
+    </Grid>
+</Window>

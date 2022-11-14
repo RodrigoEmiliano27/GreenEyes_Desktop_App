@@ -1,0 +1,93 @@
+﻿<Window x:Class="GreenEyes_Local_Server.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GreenEyes_Local_Server"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="665" Width="1044">
+    <Grid Margin="0,16,0,-16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="114*" />
+            <RowDefinition Height="236*"/>
+            <RowDefinition Height="245*"/>
+            <RowDefinition Height="54*"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.ColumnSpan="3" Margin="0,-15,0,10" Grid.RowSpan="4" Stretch="Fill" Source="/images/Horta.png" Opacity="0.75" Visibility="Visible" StretchDirection="Both"/>
+
+        <Label Margin="0,-10,44,0" FontFamily="Times New Roman" FontWeight="Bold" Content="Green Eyes" FontSize="64" Foreground="#FFEAF3E9"/>
+
+        <Button Name="btn5" Click="CarregaImagemClick" Margin="28,32,315,25" Grid.Row="1" BorderBrush="#FF2AC31B" Background="#FF24892E">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel Height="149" Width="172">
+                <Image Margin="22,10,22,10" Stretch="Fill" Source="/images/imagens.png" Visibility="Visible" StretchDirection="Both" Height="100" Width="112"/>
+                <TextBlock Height="36" Width="170" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" FlowDirection="LeftToRight"><Run Text="Selecionar Imagens"/></TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnEnvia" Margin="28,25,315,39" Click="btnEnvia_Click" BorderBrush="#FF2AC31B" Background="#FF0E8924" Grid.Row="2">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel Height="179" Width="176">
+                <Image Margin="22,10,22,10" Stretch="Fill" Source="/images/envio.png" Visibility="Visible" StretchDirection="Both" Height="100" Width="112"/>
+                <TextBlock Height="31" Width="132" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" FlowDirection="LeftToRight"><Run Text="Enviar"/></TextBlock>
+            </StackPanel>
+        </Button>
+
+        <ListBox x:Name="imageList" Margin="25,8,22,49" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#FF24892E" Opacity="0.695" BorderBrush="#FF2AC31B">
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Image Margin="3" Source="{Binding Source}" Width="80" Height="80"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button x:Name="btnSobre" Margin="77,9,88,5" Click="btnSobre_Click" BorderBrush="#FF2AC31B" Background="#FF0E8924" Grid.Column="2">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel Width="Auto">
+                <Image Margin="22,10,22,10" Stretch="Fill" Source="/images/botao-de-informacao.png" Visibility="Visible" StretchDirection="Both" Height="42" Width="42"/>
+                <TextBlock Height="24" Width="99" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" FlowDirection="LeftToRight"><Run Text="Sobre"/></TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnUser" Margin="77,10,88,4" Click="btnUser_Click" BorderBrush="#FF2AC31B" Background="#FF0E8924" Grid.Column="1">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel Width="Auto">
+                <Image Margin="22,10,22,10" Stretch="Fill" Source="/images/sombra-de-usuario-masculino.png" Visibility="Visible" StretchDirection="Both" Height="42" Width="42"/>
+                <TextBlock Height="24" Width="99" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" FlowDirection="LeftToRight"><Run Text="Rodrigo"/></TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Label Margin="28,4,0,0" FontFamily="Times New Roman" FontWeight="Bold" Content="versão: 1.0" FontSize="20" Foreground="#FFEAF3E9" Grid.Row="3" Width="132" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+    </Grid>
+</Window>
