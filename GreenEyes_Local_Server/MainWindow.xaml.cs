@@ -49,6 +49,8 @@ namespace GreenEyes_Local_Server
             public User user;
             public String token;
         }
+
+        //Objeto Auxiliar do Retorno
         public class User
         {
             public string senha { get; set; }
@@ -59,6 +61,8 @@ namespace GreenEyes_Local_Server
             public Id id { get; set; }
             public bool ativado { get; set; }
         }
+
+        //Objeto Auxiliar do Retorno
         public class IdPlantacao
         {
             public int timestamp { get; set; }
@@ -67,6 +71,8 @@ namespace GreenEyes_Local_Server
             public int increment { get; set; }
             public string creationTime { get; set; }
         }
+
+        //Objeto Auxiliar do Retorno
         public class Id
         {
             public int timestamp { get; set; }
@@ -79,8 +85,8 @@ namespace GreenEyes_Local_Server
         //instanciando um novo retorno de login
         public static Retorno retorno = null;
 
+        //Endpoint
         public static String endpoint = "https://greeneyesserver.azurewebsites.net";
-        //public static String endpoint = "https://localhost:52608";
 
         /// <summary>
         /// Evento usado para carregar as imagens em base64 em uma lista(String) de imagens em base 64 e para o painel da tela.
@@ -102,7 +108,6 @@ namespace GreenEyes_Local_Server
                 base64List.Clear();
                 foreach (string fileName in openDialog.FileNames)
                 {
-                    //BitmapImage bitmapImage = new BitmapImage(new Uri(fileName));
                     Image image = new Image { Source = new BitmapImage(new Uri(fileName)) };
                     byte[] imageArray = System.IO.File.ReadAllBytes(fileName);
                     String base64Text = Convert.ToBase64String(imageArray);
@@ -125,16 +130,15 @@ namespace GreenEyes_Local_Server
 
             Debug.WriteLine(imagens.Count);
 
-            //Enviar imagens pro Servidor
-
-            //Serializando as imagens de base64
             foreach (String img64 in base64List)
             {
+                //Preparando objeto para serializar imagem
                 Imagens img = new Imagens();
                 img.Tipo = retorno.user.tipo;
                 img.Image = img64;
                 img.Nome = Guid.NewGuid().ToString() + ".jpg";
 
+                //Integrando imagem com o servidor
                 ToRequestImg(img, endpoint + "/SavePhoto");
 
             }
@@ -143,8 +147,8 @@ namespace GreenEyes_Local_Server
 
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
-            String login = "plantação2-admin";
-            String senha = "plantação2-admin";
+            String login = "plantação3-admin";
+            String senha = "plantação3-admin";
 
             var objeto = new { login = login, senha = senha };
 
@@ -178,6 +182,12 @@ namespace GreenEyes_Local_Server
             return data;
         }
 
+        /// <summary>
+        /// Método que integra uma imagem com o servidor do GreenEyes
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="endpoint"></param>
+        /// <returns></returns>
         public static async Task ToRequestImg(object obj, String endpoint)
         {
             var json = JsonConvert.SerializeObject(obj);
@@ -189,17 +199,7 @@ namespace GreenEyes_Local_Server
             String contents = await response.Content.ReadAsStringAsync();
             retorno = JsonConvert.DeserializeObject<Retorno>(contents);
 
-           // var httpClient = new HttpClient();
-            //httpClient.BaseAddress = new Uri(endpoint);
-            //httpClient.DefaultRequestHeaders.Accept.Clear();
-            //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", retorno.token);
-
-            //var response = await httpClient.PostAsync(endpoint, data);
-
-            //String contents = await response.Content.ReadAsStringAsync();
             Debug.Write(JsonConvert.DeserializeObject(contents));
-            //return data;
         }
     }
 }
