@@ -95,7 +95,9 @@ namespace GreenEyes_Local_Server
         /// <param name="e"></param>
         private void CarregaImagemClick(object sender, RoutedEventArgs e)
         {
-            if(retorno != null)
+            base64List.Clear();
+            imageList.Items.Clear();
+            if (retorno != null)
             {
                 Debug.WriteLine(retorno.token);
             }
@@ -105,7 +107,7 @@ namespace GreenEyes_Local_Server
             openDialog.Multiselect = true;
             if (openDialog.ShowDialog() == true)
             {
-                base64List.Clear();
+                //base64List.Clear();
                 foreach (string fileName in openDialog.FileNames)
                 {
                     Image image = new Image { Source = new BitmapImage(new Uri(fileName)) };
