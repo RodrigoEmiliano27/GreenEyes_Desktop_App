@@ -4,6 +4,10 @@ O projeto é uma solução computacional que tem como principal objetivo auxilia
 
 Observação: Esse repositório é para a aplicação WPF.
 
+# Sobre o vídeo 🎥
+O link do vídeo está disponível no OneDrive:
+https://1drv.ms/v/s!Ag-akAKT0hLMgjB1YEKvvOk9O9o_?e=Pnr6sY
+
 ## Arquitetura
 
 ![Alt text](Arquitetura.png?raw=true "Arquitetura")
@@ -11,10 +15,6 @@ Observação: Esse repositório é para a aplicação WPF.
 ### Postman
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/23312355-15258a28-486c-4684-ac6f-130abaa3d4f4?action=collection%2Ffork&collection-url=entityId%3D23312355-15258a28-486c-4684-ac6f-130abaa3d4f4%26entityType%3Dcollection%26workspaceId%3D415e2cc9-5bb2-4db7-a496-21837ad80a23)
-
-# Sobre o vídeo 🎥
-O link do vídeo está disponível no OneDrive:
-(Em breve)
 
 # Grupo 👥
 Grupo: Gabriel Alves, Lucas Costa e Rodrigo Emiliano.
