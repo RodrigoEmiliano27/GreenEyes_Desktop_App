@@ -1,0 +1,46 @@
+﻿<Window x:Class="GreenEyes_Local_Server.JanelaLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:GreenEyes_Local_Server"
+        mc:Ignorable="d"
+        Title="JanelaLogin" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="209*"/>
+            <ColumnDefinition Width="382*"/>
+            <ColumnDefinition Width="209*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="47*"/>
+        </Grid.RowDefinitions>
+        <Image Stretch="Fill" Source="/images/Horta.png" Opacity="0.75" Visibility="Visible" StretchDirection="Both" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
+
+        <TextBox x:Name="txtUser" Background="Transparent" Foreground="#FFEAF3E9" CaretBrush="LightGray" BorderBrush="#FF2AC31B" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" Margin="73,35,46,16" Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Times New Roman" TextAlignment="Left" CharacterCasing="Lower" FontStyle="Normal"/>
+        <Label FontFamily="Times New Roman" FontWeight="Bold" Content="Green Eyes" FontSize="64" Foreground="#FFEAF3E9" Grid.ColumnSpan="3"/>
+        <Label Margin="73,5,202,45" FontFamily="Times New Roman" FontWeight="Bold" Content="Usuário" FontSize="16" Foreground="#FFEAF3E9" RenderTransformOrigin="0.424,2.822" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="txtPassword" Background="Transparent" Foreground="#FFEAF3E9" CaretBrush="LightGray" BorderBrush="#FF2AC31B" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" Margin="73,36,46,16" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Times New Roman" TextAlignment="Left" CharacterCasing="Lower" FontWeight="Medium" FontStyle="Normal"/>
+        <Label Margin="73,5,188,45" FontFamily="Times New Roman" FontWeight="Bold" Content="Senha" FontSize="16" Foreground="#FFEAF3E9" RenderTransformOrigin="0.424,2.822" Grid.Row="2" Grid.Column="1"/>
+
+        <Button x:Name="btnLogin" Margin="87,5,59,10" Click="btnLogin_Click" Content="Login" BorderBrush="#FF2AC31B" Background="#FF0E8924" Foreground="#FFEAF3E9" Grid.Row="3" FontFamily="Times New Roman" FontWeight="Bold" FontSize="32" Grid.Column="1">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Label x:Name="lblErro" Margin="110,4,0,9" Visibility="Hidden" FontFamily="Times New Roman" FontWeight="Bold" Content="Erro" FontSize="16" Foreground="#FFFDDDDA" RenderTransformOrigin="0.424,2.822" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="201">
+            <Label.Background>
+                <ImageBrush/>
+            </Label.Background>
+        </Label>
+        <Image x:Name="imgLoading" Margin="71,97,71,69" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/images/loading.gif" Opacity="0.45" Visibility="Hidden" StretchDirection="Both" Grid.Column="1" Grid.RowSpan="4"/>
+    </Grid>
+</Window>

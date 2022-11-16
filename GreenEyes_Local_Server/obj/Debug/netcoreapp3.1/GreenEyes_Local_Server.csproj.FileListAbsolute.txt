@@ -71,3 +71,6 @@ D:\Projetos\GreenEyes_Local_Server\GreenEyes_Local_Server\bin\Debug\netcoreapp3.
 D:\Projetos\GreenEyes_Local_Server\GreenEyes_Local_Server\obj\Debug\netcoreapp3.1\JanelaSobre.g.cs
 D:\Projetos\GreenEyes_Local_Server\GreenEyes_Local_Server\obj\Debug\netcoreapp3.1\JanelaSobre.baml
 D:\Projetos\GreenEyes_Local_Server\GreenEyes_Local_Server\obj\Debug\netcoreapp3.1\GreenEyes_Local_Server.csproj.CopyComplete
+D:\Projetos\GreenEyes_Local_Server\GreenEyes_Local_Server\obj\Debug\netcoreapp3.1\JanelaLogin.g.cs
+D:\Projetos\GreenEyes_Local_Server\GreenEyes_Local_Server\obj\Debug\netcoreapp3.1\JanelaLogin.baml
+D:\Projetos\GreenEyes_Local_Server\GreenEyes_Local_Server\bin\Debug\netcoreapp3.1\WpfAnimatedGif.dll

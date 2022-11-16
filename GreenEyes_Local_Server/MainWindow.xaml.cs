@@ -48,6 +48,7 @@ namespace GreenEyes_Local_Server
         {
             public User user;
             public String token;
+            public String message;
         }
 
         //Objeto Auxiliar do Retorno
@@ -84,6 +85,8 @@ namespace GreenEyes_Local_Server
 
         //instanciando um novo retorno de login
         public static Retorno retorno = null;
+        public static String usuario = null;
+        public static String senha = null;
 
         //Endpoint
         public static String endpoint = "https://greeneyesserver.azurewebsites.net";
@@ -122,7 +125,7 @@ namespace GreenEyes_Local_Server
 
         }
 
-        private void btnEnvia_Click(object sender, RoutedEventArgs e)
+        private async void btnEnvia_Click(object sender, RoutedEventArgs e)
         {
             List<Image> imagens = new List<Image>();
             foreach (Image drv in imageList.Items)
@@ -132,6 +135,10 @@ namespace GreenEyes_Local_Server
 
             Debug.WriteLine(imagens.Count);
 
+            btnEnvia.IsEnabled = false;
+            btnEnvia.IsEnabled = false;
+            lblEnviando.Visibility = Visibility.Visible;
+            imgLoading.Visibility = Visibility.Visible;
             foreach (String img64 in base64List)
             {
                 //Preparando objeto para serializar imagem
@@ -140,10 +147,20 @@ namespace GreenEyes_Local_Server
                 img.Image = img64;
                 img.Nome = Guid.NewGuid().ToString() + ".jpg";
 
+                //Atualiza o Token
+                var objeto = new { login = usuario, senha = senha };
+                await PostUser(objeto, "https://greeneyesserver.azurewebsites.net/login");
+
                 //Integrando imagem com o servidor
                 ToRequestImg(img, endpoint + "/SavePhoto");
 
             }
+            btnEnvia.IsEnabled = true;
+            btnEnvia.IsEnabled = true;
+            lblEnviando.Visibility = Visibility.Hidden;
+            imgLoading.Visibility = Visibility.Hidden;
+            base64List.Clear();
+            imageList.Items.Clear();
             Debug.WriteLine("Imagens Enviadas");
         }
 
@@ -157,13 +174,13 @@ namespace GreenEyes_Local_Server
             PostUser(objeto, endpoint + "/login");
         }
 
-
         private void btnSobre_Click(object sender, RoutedEventArgs e)
         {
             JanelaSobre janelaSobre = new JanelaSobre();
             janelaSobre.Show();
         }
 
+        //public static async Task PostUser(object obj, String endpoint)
         public static async Task PostUser(object obj, String endpoint)
         {
             var httpClient = new HttpClient();

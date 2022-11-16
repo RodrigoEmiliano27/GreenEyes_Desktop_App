@@ -7,11 +7,17 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="JanelaLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="JanelaSobre.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="JanelaLogin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="JanelaSobre.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:GreenEyes_Local_Server"
         mc:Ignorable="d"
         Title="MainWindow" Height="665" Width="1044">
@@ -48,7 +49,7 @@
             </StackPanel>
         </Button>
 
-        <ListBox x:Name="imageList" Margin="25,8,22,49" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#FF24892E" Opacity="0.695" BorderBrush="#FF2AC31B">
+        <ListBox x:Name="imageList" Margin="25,21,22,36" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#FF24892E" Opacity="0.695" BorderBrush="#FF2AC31B">
             <ListBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
@@ -75,7 +76,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnUser" Margin="77,10,88,4" Click="btnUser_Click" BorderBrush="#FF2AC31B" Background="#FF0E8924" Grid.Column="1">
+        <Button x:Name="btnUser" Margin="72,10,72,4" Click="btnUser_Click" BorderBrush="#FF2AC31B" Background="#FF0E8924" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
@@ -83,11 +84,13 @@
             </Button.Resources>
             <StackPanel Width="Auto">
                 <Image Margin="22,10,22,10" Stretch="Fill" Source="/images/sombra-de-usuario-masculino.png" Visibility="Visible" StretchDirection="Both" Height="42" Width="42"/>
-                <TextBlock Height="24" Width="99" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" FlowDirection="LeftToRight"><Run Text="Rodrigo"/></TextBlock>
+                <TextBlock x:Name="txtLogado" Height="24" Width="112" FontFamily="Times New Roman" FontWeight="Bold" TextAlignment="Center" Foreground="White" FlowDirection="LeftToRight" LineStackingStrategy="MaxHeight"><Run Text="Rodrigo"/></TextBlock>
             </StackPanel>
         </Button>
 
         <Label Margin="28,4,0,0" FontFamily="Times New Roman" FontWeight="Bold" Content="versão: 1.0" FontSize="20" Foreground="#FFEAF3E9" Grid.Row="3" Width="132" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
+        <Label x:Name="lblEnviando" Margin="176,32,0,0" Visibility="Hidden" FontFamily="Times New Roman" FontWeight="Bold" Content="Enviando Imagens" FontSize="20" Foreground="#FFEAF3E9" Width="172" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Image x:Name="imgLoading" Margin="82,97,80,24" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/images/loading.gif" Opacity="0.35" Visibility="Hidden" StretchDirection="Both" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Grid.ColumnSpan="2" Width="360" Height="360"/>
     </Grid>
 </Window>

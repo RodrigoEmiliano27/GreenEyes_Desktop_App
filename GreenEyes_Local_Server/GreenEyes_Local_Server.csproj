@@ -11,12 +11,14 @@
     <None Remove="images\envio.png" />
     <None Remove="images\Horta.png" />
     <None Remove="images\imagens.png" />
+    <None Remove="images\loading.gif" />
     <None Remove="images\sombra-de-usuario-masculino.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Exchange.WebServices" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +32,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\imagens.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\loading.gif">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\sombra-de-usuario-masculino.png">
