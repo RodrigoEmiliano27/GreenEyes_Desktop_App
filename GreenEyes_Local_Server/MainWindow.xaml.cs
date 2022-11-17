@@ -20,6 +20,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using Microsoft.Exchange.WebServices.Auth.Validation;
 using System.Net.Http.Headers;
+using System.Net;
 
 namespace GreenEyes_Local_Server
 {
@@ -127,16 +128,14 @@ namespace GreenEyes_Local_Server
 
         private async void btnEnvia_Click(object sender, RoutedEventArgs e)
         {
-            List<Image> imagens = new List<Image>();
-            foreach (Image drv in imageList.Items)
+            if (base64List.Count == 0)
             {
-                imagens.Add(drv);
+                Debug.WriteLine("Sem imagens na lista");
+                return;
             }
 
-            Debug.WriteLine(imagens.Count);
-
             btnEnvia.IsEnabled = false;
-            btnEnvia.IsEnabled = false;
+            btnCarregaImagem.IsEnabled = false;
             lblEnviando.Visibility = Visibility.Visible;
             imgLoading.Visibility = Visibility.Visible;
             foreach (String img64 in base64List)
@@ -156,7 +155,7 @@ namespace GreenEyes_Local_Server
 
             }
             btnEnvia.IsEnabled = true;
-            btnEnvia.IsEnabled = true;
+            btnCarregaImagem.IsEnabled = true;
             lblEnviando.Visibility = Visibility.Hidden;
             imgLoading.Visibility = Visibility.Hidden;
             base64List.Clear();
@@ -166,12 +165,13 @@ namespace GreenEyes_Local_Server
 
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
-            String login = "plantação3-admin";
-            String senha = "plantação3-admin";
+            usuario = null;
+            senha = null;
+            retorno = null;
 
-            var objeto = new { login = login, senha = senha };
-
-            PostUser(objeto, endpoint + "/login");
+            JanelaLogin JanelaLogin = new JanelaLogin();
+            JanelaLogin.Show();
+            Close();
         }
 
         private void btnSobre_Click(object sender, RoutedEventArgs e)
@@ -183,7 +183,15 @@ namespace GreenEyes_Local_Server
         //public static async Task PostUser(object obj, String endpoint)
         public static async Task PostUser(object obj, String endpoint)
         {
-            var httpClient = new HttpClient();
+            //Código para não cair no Status 407 da faculdade
+            HttpClientHandler handler = new HttpClientHandler();
+
+            IWebProxy proxy = WebRequest.GetSystemWebProxy();
+            proxy.Credentials = CredentialCache.DefaultCredentials;
+            handler.Proxy = proxy;
+            //
+
+            var httpClient = new HttpClient(handler);
             var content = ToRequest(obj);
             var response = await httpClient.PostAsync(endpoint, content);
             String contents = await response.Content.ReadAsStringAsync();
@@ -212,7 +220,15 @@ namespace GreenEyes_Local_Server
             var json = JsonConvert.SerializeObject(obj);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var httpClient = new HttpClient();
+            //Código para não cair no Status 407 da faculdade
+            HttpClientHandler handler = new HttpClientHandler();
+
+            IWebProxy proxy = WebRequest.GetSystemWebProxy();
+            proxy.Credentials = CredentialCache.DefaultCredentials;
+            handler.Proxy = proxy;
+            //
+
+            var httpClient = new HttpClient(handler);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", retorno.token);
             var response = await httpClient.PostAsync(endpoint, content);
             String contents = await response.Content.ReadAsStringAsync();

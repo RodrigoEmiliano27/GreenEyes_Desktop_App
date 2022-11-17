@@ -25,7 +25,7 @@
 
         <Label Margin="0,-10,44,0" FontFamily="Times New Roman" FontWeight="Bold" Content="Green Eyes" FontSize="64" Foreground="#FFEAF3E9"/>
 
-        <Button Name="btn5" Click="CarregaImagemClick" Margin="28,32,315,25" Grid.Row="1" BorderBrush="#FF2AC31B" Background="#FF24892E">
+        <Button x:Name="btnCarregaImagem" Click="CarregaImagemClick" Margin="28,32,315,25" Grid.Row="1" BorderBrush="#FF2AC31B" Background="#FF24892E">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
