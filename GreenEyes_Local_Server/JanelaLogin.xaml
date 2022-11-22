@@ -22,10 +22,10 @@
         </Grid.RowDefinitions>
         <Image Stretch="Fill" Source="/images/Horta.png" Opacity="0.75" Visibility="Visible" StretchDirection="Both" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
 
-        <TextBox x:Name="txtUser" Background="Transparent" Foreground="#FFEAF3E9" CaretBrush="LightGray" BorderBrush="#FF2AC31B" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" Margin="73,35,46,16" Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Times New Roman" TextAlignment="Left" CharacterCasing="Lower" FontStyle="Normal"/>
+        <TextBox x:Name="txtUser" Background="Transparent" Foreground="#FFEAF3E9" CaretBrush="LightGray" BorderBrush="#FF2AC31B" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" Margin="73,35,46,16" Grid.Row="1" Grid.Column="1" FontSize="24" FontFamily="Times New Roman" TextAlignment="Left" CharacterCasing="Normal" FontStyle="Normal"/>
         <Label FontFamily="Times New Roman" FontWeight="Bold" Content="Green Eyes" FontSize="64" Foreground="#FFEAF3E9" Grid.ColumnSpan="3"/>
         <Label Margin="73,5,202,45" FontFamily="Times New Roman" FontWeight="Bold" Content="Usuário" FontSize="16" Foreground="#FFEAF3E9" RenderTransformOrigin="0.424,2.822" Grid.Column="1" Grid.Row="1"/>
-        <TextBox x:Name="txtPassword" Background="Transparent" Foreground="#FFEAF3E9" CaretBrush="LightGray" BorderBrush="#FF2AC31B" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" Margin="73,36,46,16" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Times New Roman" TextAlignment="Left" CharacterCasing="Lower" FontWeight="Medium" FontStyle="Normal"/>
+        <PasswordBox  x:Name="txtPassword" Background="Transparent" Foreground="#FFEAF3E9" CaretBrush="LightGray" BorderBrush="#FF2AC31B" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" Margin="73,36,46,16" Grid.Row="2" Grid.Column="1" FontSize="24" FontFamily="Times New Roman" FontWeight="Medium" FontStyle="Normal"/>
         <Label Margin="73,5,188,45" FontFamily="Times New Roman" FontWeight="Bold" Content="Senha" FontSize="16" Foreground="#FFEAF3E9" RenderTransformOrigin="0.424,2.822" Grid.Row="2" Grid.Column="1"/>
 
         <Button x:Name="btnLogin" Margin="87,5,59,10" Click="btnLogin_Click" Content="Login" BorderBrush="#FF2AC31B" Background="#FF0E8924" Foreground="#FFEAF3E9" Grid.Row="3" FontFamily="Times New Roman" FontWeight="Bold" FontSize="32" Grid.Column="1">
